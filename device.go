@@ -46,7 +46,7 @@ type Device struct {
 // a Device's state.
 type State C.int
 
-// Method is a bitmap of commands supported by the
+// Method is a bitmask of commands supported by the
 // client and/or the device.
 type Methods C.int
 
