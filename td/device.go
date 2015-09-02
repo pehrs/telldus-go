@@ -109,12 +109,12 @@ func (d *Device) Bell() error {
 
 // Sends up command to the Device.
 func (d *Device) Up() error {
-	return getError(C.tdExecute(d.cId))
+	return getError(C.tdUp(d.cId))
 }
 
 // Sends down command to the Device.
 func (d *Device) Down() error {
-	return getError(C.tdExecute(d.cId))
+	return getError(C.tdDown(d.cId))
 }
 
 // Sends stop command to the Device.
