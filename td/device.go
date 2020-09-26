@@ -94,7 +94,7 @@ func (d *Device) TurnOff() error {
 
 // Dim Device to given level.
 func (d *Device) Dim(level uint) error {
-	err := getError(C.tdDim(d.cId, _Ctype_unsignedchar(level)))
+	err := getError(C.tdDim(d.cId, C.uchar(level)))
 	if err == nil {
 		d.State = DIMMED
 	}

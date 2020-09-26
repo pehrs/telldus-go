@@ -89,8 +89,13 @@ func toSensorValue(value string, dataType int) SensorValue {
 
 //export newSensorEvent
 func newSensorEvent(
-	protocol, model *C.char, sensorId,
-	dataType int, value *C.char, ts, callbackId int,
+	protocol *C.char,
+	model *C.char,
+	sensorId C.int,
+	dataType C.int,
+	value *C.char,
+	ts C.int,
+	callbackId C.int,
 	context unsafe.Pointer) {
 
 	cs := (*sensorSubscription)(context).cs
@@ -98,8 +103,8 @@ func newSensorEvent(
 	cs <- SensorEvent{
 		Protocol: C.GoString(protocol),
 		Model:    C.GoString(model),
-		Id:       sensorId,
-		Value:    toSensorValue(C.GoString(value), dataType),
+		Id:       int(sensorId),
+		Value:    toSensorValue(C.GoString(value), int(dataType)),
 		When:     time.Unix(int64(ts), 0),
 	}
 }

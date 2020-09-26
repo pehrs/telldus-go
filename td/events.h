@@ -9,4 +9,6 @@ int registerSensorEvent(void *context);
 void WINAPI deviceEvent(int deviceId, int method, const char *data, int callbackId, void *context);
 int registerDeviceEvent(void *context);
 
+// extern void newSensorEvent(char *protocol, char *model, int sensorId, int dataType, char *value, int ts, int callbackId, void *context);
+
 #endif
